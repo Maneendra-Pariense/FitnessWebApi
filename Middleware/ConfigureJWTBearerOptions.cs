@@ -15,7 +15,7 @@ namespace FitnessApi.Middleware
         public ConfigureJWTBearerOptions(IConfiguration config)
         {
             _config = config;
-            Console.WriteLine("ConfigureJWTBearerOptions constructor called");
+            Console.WriteLine("ConfigureJWTBearerOptions constructor called.");
         }
 
         public void Configure(string name, JwtBearerOptions options)
