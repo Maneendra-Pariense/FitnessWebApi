@@ -9,7 +9,7 @@ namespace FitnessApi.DataLayer
         {
 
         }
-        public DbSet<SugarLog> SugarLog { get; set; }
+        public DbSet<SugarLog> SugarLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
