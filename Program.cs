@@ -25,15 +25,15 @@ builder.UseFunctionExecutionMiddleware()
 var keyvaultName = builder.Configuration["KeyVaultName"];
 var zureId = builder.Configuration["AzureAd:AppId"];
 builder.Configuration.AddAzureKeyVault(
-     new Uri($"https://{builder.Configuration["KeyVaultName"]}.vault.azure.net/"),
+     new Uri("https://dev-pariense-vault.vault.azure.net/"),
     new DefaultAzureCredential(),
     new KeyVaultSecretManager());
 
 var conn = builder.Configuration.GetSection("ParienseDbConnectionString").Value;
 //var conn = builder.Configuration.GetSection("ParienseLocalDbConnectionString").Value;
-var conn1 = "Server=(localdb)\\MSSQLLocalDB;Database=ParienseDb;Trusted_Connection=True;TrustServerCertificate=True;";
+// var conn1 = "Server=(localdb)\\MSSQLLocalDB;Database=ParienseDb;Trusted_Connection=True;TrustServerCertificate=True;";
 
-builder.Services.AddDbContext<ParienseDbContext>(options => options.UseSqlServer(conn1));
+builder.Services.AddDbContext<ParienseDbContext>(options => options.UseSqlServer(conn));
 
 builder.Services.AddScoped<ISugarLogsDao, SugarLogsDao>();
 
