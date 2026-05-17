@@ -27,8 +27,8 @@ builder.Configuration.AddAzureKeyVault(
     new DefaultAzureCredential(),
     new KeyVaultSecretManager());
 
-//var conn = builder.Configuration.GetSection("ParienseDbConnectionString").Value;
-var conn = builder.Configuration.GetSection("ParienseLocalDbConnectionString").Value;
+var conn = builder.Configuration.GetSection("ParienseDbConnectionString").Value;
+//var conn = builder.Configuration.GetSection("ParienseLocalDbConnectionString").Value;
 
 
 builder.Services.AddDbContext<ParienseDbContext>(options => options.UseSqlServer(conn));
